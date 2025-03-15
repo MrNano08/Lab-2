@@ -1,22 +1,26 @@
-import { useState } from 'react'
-const number = Math.floor(Math.random() * 20);
-export function useCounter(){
-    const [count, setCount] = useState(0)
-    const clickCounter = () => {
-      const newCount = count + 1;
-      setCount(newCount);
-  
-      if (newCount === number) {
-        alert("¡El número es " + number + "¡");
-      }
-  
-    };
-    const clickReducer = () => {
-      const newCount = count - 1;
-      setCount(newCount);
-      if (newCount === number) {
-        alert("¡El número es " + number + "¡");
-      }
+import { useState, useEffect } from 'react'
+
+export function useCounter() {
+  const [count, setCount] = useState(() => {
+    try {
+      return Number(window.localStorage.getItem('count')) || 0
+    } catch (error) {
+      return 0
     }
-    return {count, clickCounter, clickReducer}
+  })
+
+  useEffect(() => {
+    window.localStorage.setItem('count', count)
+  }, [count])
+
+  const clickCounter = () => setCount(prev => prev + 1)
+  const clickReducer = () => setCount(prev => (prev > 0 ? prev - 1 : 0))
+  const resetCounter = () => setCount(0)
+
+  return { 
+    count, 
+    clickCounter, 
+    clickReducer,
+    resetCounter
   }
+}

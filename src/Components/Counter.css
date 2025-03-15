@@ -1,0 +1,62 @@
+/* Contenedor principal */
+.counter-container {
+  text-align: center;
+  padding: 20px;
+  max-width: 280px;
+  margin: auto;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Valor del contador */
+.counter-value {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Contenedor de botones */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Botones */
+.counter-button {
+  flex: 1;
+  font-size: 1.2rem;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hover en botones */
+.counter-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Botón de Reset en rojo */
+.reset {
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+.reset:hover {
+  background: rgba(255, 107, 107, 0.2);
+}
+
+/* Mensaje de número favorito */
+.favorite-number {
+  color: #d8d8d8;
+  font-size: 1rem;
+  margin-top: 10px;
+  font-weight: 500;
+}
